@@ -190,7 +190,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/buttonGenerate"
+                    android:id="@+id/launchSearchButton"
                     android:layout_width="235dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
