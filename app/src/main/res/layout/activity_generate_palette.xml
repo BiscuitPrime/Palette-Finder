@@ -14,7 +14,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="98dp"
+            android:layout_height="64dp"
             android:background="#8000FF"
             android:orientation="horizontal">
 
@@ -23,10 +23,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Palette    Finder"
+                android:text="Palette Finder"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="40dp"
+                android:textSize="30dp"
                 android:textStyle="italic" />
 
             <Button
@@ -40,29 +40,174 @@
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
-            android:layout_height="34dp" />
+            android:layout_height="12dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="530dp"
+            android:layout_height="87dp"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/colorView1"
                 android:layout_width="113dp"
-                android:layout_height="109dp"
+                android:layout_height="72dp"
                 app:srcCompat="@android:drawable/screen_background_light" />
 
             <EditText
                 android:id="@+id/RGBval1"
                 android:layout_width="wrap_content"
-                android:layout_height="104dp"
+                android:layout_height="72dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
+                android:text="N"
                 android:textAlignment="center"
-                android:textColor="@color/white"
-                android:text="RGB Values" />
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/colorView2"
+                android:layout_width="21dp"
+                android:layout_height="78dp"
+                android:layout_weight="1"
+                app:srcCompat="@android:drawable/screen_background_light" />
+
+            <EditText
+                android:id="@+id/RGBval2"
+                android:layout_width="wrap_content"
+                android:layout_height="76dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="N"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/colorView3"
+                android:layout_width="21dp"
+                android:layout_height="81dp"
+                android:layout_weight="1"
+                app:srcCompat="@android:drawable/screen_background_light" />
+
+            <EditText
+                android:id="@+id/RGBval3"
+                android:layout_width="wrap_content"
+                android:layout_height="81dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="N"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/colorView4"
+                android:layout_width="21dp"
+                android:layout_height="81dp"
+                android:layout_weight="1"
+                app:srcCompat="@android:drawable/screen_background_light" />
+
+            <EditText
+                android:id="@+id/RGBval4"
+                android:layout_width="wrap_content"
+                android:layout_height="81dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="N"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/colorView5"
+                android:layout_width="21dp"
+                android:layout_height="81dp"
+                android:layout_weight="1"
+                app:srcCompat="@android:drawable/screen_background_light" />
+
+            <EditText
+                android:id="@+id/RGBval5"
+                android:layout_width="wrap_content"
+                android:layout_height="81dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="N"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/paletteName"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonGenerate"
+                    android:layout_width="235dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Generate" />
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="52dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/buttonSave"
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:text="Save" />
+            </LinearLayout>
 
         </LinearLayout>
 

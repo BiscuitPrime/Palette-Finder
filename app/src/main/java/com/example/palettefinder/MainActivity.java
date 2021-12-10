@@ -13,11 +13,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Quit Button --------------------------------------------------------
         Button quitButton = (Button) findViewById(R.id.quitButton);
         quitButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){finish();}
         });
+        //Quit Button --------------------------------------------------------
 
+        //Generate Button ----------------------------------------------------
         Button generateButton = (Button) findViewById(R.id.generateButton);
         generateButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -25,5 +28,6 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivity(generateIntent);
             }
         });
+        //Generate Button ----------------------------------------------------
     }
 }
