@@ -1,19 +1,25 @@
 package com.example.palettefinder;
 
 import android.os.AsyncTask;
+import android.util.JsonReader;
 import android.util.Log;
 
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.List;
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.StringRequestListener;
 
-import javax.net.ssl.HttpsURLConnection;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 public class AsyncColorMindJSONData extends AsyncTask<String, Void, String> {
     private GeneratePalette generateActivity;
@@ -26,43 +32,45 @@ public class AsyncColorMindJSONData extends AsyncTask<String, Void, String> {
         super.onPreExecute();
     }
 
+    JsonReader jsonReader;
+    String value;
+
     @Override
     protected String doInBackground(String... strings) {
-        String urlString = "https://colormind.io/api/"; // URL to call
-        List data = dataToSend; //data to post
-        OutputStream out = null;
-        String response = "";
-
+        JSONObject jsonObject = new JSONObject();
         try {
-            URL url = new URL(urlString);
-            HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
-            out = new BufferedOutputStream(conn.getOutputStream());
-
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out, "UTF-8"));
-            writer.write("{\"model\":\"default\"}"); //TEST
-            writer.flush();
-            writer.close();
-            out.close();
-
-            conn.connect();
-
-            int responseCode=conn.getResponseCode();
-
-            if (responseCode == HttpsURLConnection.HTTP_OK) {
-                String line;
-                BufferedReader br=new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                while ((line=br.readLine()) != null) {
-                    response+=line;
-                }
-            }
-            else {
-                response="";
-
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            jsonObject.put("model", "default");
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        Log.d("Response", response);
-        return response;
+
+        AndroidNetworking.post("http://colormind.io/api/")
+                .addByteBody(jsonObject.toString().getBytes())
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsString(new StringRequestListener() {
+                                 @Override
+                                 public void onResponse(String response) {
+                                     if (response != null) {
+                                         Log.d("VOILA", response);
+                                     }
+                                     else {
+                                         Log.d("VOILA3", "RIEN");
+                                     }
+                                 }
+
+                                 @Override
+                                 public void onError(ANError error) {
+                                     Log.d("VOILA2", error.toString());
+                                 }
+                             }
+                );
+
+        return value;
+    }
+
+    @Override
+    protected void onPostExecute(String result) {
+        Log.i("JFL", "Response from the server: " +jsonReader+result);
     }
 }
