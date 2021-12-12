@@ -2,6 +2,7 @@ package com.example.palettefinder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,5 +27,21 @@ public class GeneratePalette extends AppCompatActivity {
         Button launchButton = (Button) findViewById(R.id.launchSearchButton);
         launchButton.setOnClickListener(new GetPaletteOnClickEvent(this));
         //Launch search Button ----------------------------------------------------
+
+        //Save Button -------------------------------------------------------------
+        Button saveButton = (Button) findViewById(R.id.buttonSave);
+        saveButton.setOnClickListener(new SavePaletteOnClickEvent(this));
+        //Save Button -------------------------------------------------------------
+
+        //SavedPalettesButton -----------------------------------------------------
+        Button savedPalettesButton = (Button) findViewById(R.id.savedButton);
+        savedPalettesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent savedIntent = new Intent(GeneratePalette.this, SavedPalettes.class);
+                GeneratePalette.this.startActivity(savedIntent);
+            }
+        });
+        //SavedPalettesButton -----------------------------------------------------
     }
 }
