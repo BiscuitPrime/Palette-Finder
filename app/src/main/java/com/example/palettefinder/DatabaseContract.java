@@ -6,7 +6,7 @@ public final class DatabaseContract {
     private DatabaseContract(){}
 
     public static class DataEntry implements BaseColumns{
-        public static final String TABLE_NAME = "SavedPalette";
+        public static final String TABLE_NAME = "SavedPalettes";
         public static final String COLUMN_NAME_NAME = "name";
         public static final String COLUMN_NAME_COLOR1 = "color1";
         public static final String COLUMN_NAME_COLOR2 = "color2";

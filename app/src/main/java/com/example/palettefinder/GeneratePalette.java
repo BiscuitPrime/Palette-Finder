@@ -23,6 +23,16 @@ public class GeneratePalette extends AppCompatActivity {
         });
         //Quit Button -------------------------------------------------------------
 
+        //Home Button -------------------------------------------------------------
+        Button homeButton = (Button) findViewById(R.id.homeButton);
+        homeButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent homeIntent = new Intent(GeneratePalette.this, MainActivity.class);
+                GeneratePalette.this.startActivity(homeIntent);
+            }
+        });
+        //Home Button -------------------------------------------------------------
+
         //Launch search Button ----------------------------------------------------
         Button launchButton = (Button) findViewById(R.id.launchSearchButton);
         launchButton.setOnClickListener(new GetPaletteOnClickEvent(this));

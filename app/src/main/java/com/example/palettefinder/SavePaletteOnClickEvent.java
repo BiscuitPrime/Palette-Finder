@@ -2,6 +2,7 @@ package com.example.palettefinder;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -29,8 +30,7 @@ public class SavePaletteOnClickEvent implements View.OnClickListener {
         String paletteName = nameText.getText().toString();
 
         //Now that we have the data, we're putting it inside a database :
-        DatabaseHelper dbHelper = new DatabaseHelper(generateActivity);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        DatabaseHelper myDataBase = new DatabaseHelper(generateActivity);
 
         ContentValues values = new ContentValues();
         values.put(DatabaseContract.DataEntry.COLUMN_NAME_NAME, paletteName);
@@ -40,7 +40,7 @@ public class SavePaletteOnClickEvent implements View.OnClickListener {
         values.put(DatabaseContract.DataEntry.COLUMN_NAME_COLOR4, color4);
         values.put(DatabaseContract.DataEntry.COLUMN_NAME_COLOR5, color5);
 
-        long newRow = db.insert(DatabaseContract.DataEntry.TABLE_NAME,null,values);
-
+        myDataBase.insertData(values);
+        Log.d("Db","Data saved !");
     }
 }
