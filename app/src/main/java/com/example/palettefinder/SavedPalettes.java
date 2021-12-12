@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -45,11 +46,23 @@ public class SavedPalettes extends AppCompatActivity {
 
         //Displaying the list :
         ListView list = (ListView) findViewById(R.id.listSavedPalettes);
+        //list.setAdapter(new CustomAdapter(context));
         ArrayAdapter<String> tableau = new ArrayAdapter<String>(list.getContext(), R.layout.liste);
 
         DatabaseHelper mydb = new DatabaseHelper(this);
         mydb.readData();
         mydb.printData(tableau);
         list.setAdapter(tableau);
+
+        //Interaction with the liste :
+        //When an item is clicked, the list displays the custom palette activity
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent customPaletteIntent = new Intent(SavedPalettes.this, CustomPalette.class);
+                customPaletteIntent.putExtra("Saved Palette",tableau.getItem(position).toString());
+                SavedPalettes.this.startActivity(customPaletteIntent);
+            }
+        });
     }
 }

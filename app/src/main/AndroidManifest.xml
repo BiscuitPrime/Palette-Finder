@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PaletteFinder"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".CustomPalette"
+            android:exported="false" />
+        <activity
             android:name=".SavedPalettes"
             android:exported="false" />
         <activity
