@@ -1,8 +1,10 @@
 package com.example.palettefinder;
 
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.util.JsonReader;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -44,6 +46,11 @@ public class AsyncColorMindJSONData extends AsyncTask<String, Void, String> {
         EditText textRGBVal3 = (EditText) generateActivity.findViewById(R.id.RGBval3);
         EditText textRGBVal4 = (EditText) generateActivity.findViewById(R.id.RGBval4);
         EditText textRGBVal5 = (EditText) generateActivity.findViewById(R.id.RGBval5);
+        View Color1 = (View) generateActivity.findViewById(R.id.colorView1);
+        View Color2 = (View) generateActivity.findViewById(R.id.colorView2);
+        View Color3 = (View) generateActivity.findViewById(R.id.colorView3);
+        View Color4 = (View) generateActivity.findViewById(R.id.colorView4);
+        View Color5 = (View) generateActivity.findViewById(R.id.colorView5);
 
         //We create a jsonObject that will be sent to the API, to get the relevant data
         JsonObject jsonObject = new JsonObject();
@@ -83,6 +90,17 @@ public class AsyncColorMindJSONData extends AsyncTask<String, Void, String> {
                                              textRGBVal3.setText(jsonresult.getJSONArray("result").get(2).toString());
                                              textRGBVal4.setText(jsonresult.getJSONArray("result").get(3).toString());
                                              textRGBVal5.setText(jsonresult.getJSONArray("result").get(4).toString());
+                                             //we display the colors in the views :
+                                             List color1 = obtainRGB(jsonresult.getJSONArray("result").get(0).toString());
+                                             List color2 = obtainRGB(jsonresult.getJSONArray("result").get(1).toString());
+                                             List color3 = obtainRGB(jsonresult.getJSONArray("result").get(2).toString());
+                                             List color4 = obtainRGB(jsonresult.getJSONArray("result").get(3).toString());
+                                             List color5 = obtainRGB(jsonresult.getJSONArray("result").get(4).toString());
+                                             Color1.setBackgroundColor(Color.rgb(Integer.parseInt(color1.get(0).toString()),Integer.parseInt(color1.get(1).toString()),Integer.parseInt(color1.get(2).toString())));
+                                             Color2.setBackgroundColor(Color.rgb(Integer.parseInt(color2.get(0).toString()),Integer.parseInt(color2.get(1).toString()),Integer.parseInt(color2.get(2).toString())));
+                                             Color3.setBackgroundColor(Color.rgb(Integer.parseInt(color3.get(0).toString()),Integer.parseInt(color3.get(1).toString()),Integer.parseInt(color3.get(2).toString())));
+                                             Color4.setBackgroundColor(Color.rgb(Integer.parseInt(color4.get(0).toString()),Integer.parseInt(color4.get(1).toString()),Integer.parseInt(color4.get(2).toString())));
+                                             Color5.setBackgroundColor(Color.rgb(Integer.parseInt(color5.get(0).toString()),Integer.parseInt(color5.get(1).toString()),Integer.parseInt(color5.get(2).toString())));
                                          } catch (JSONException e) {
                                              e.printStackTrace();
                                          }
@@ -128,6 +146,19 @@ public class AsyncColorMindJSONData extends AsyncTask<String, Void, String> {
             new_list.add(Integer.parseInt(sb2.toString()));
             return new_list;
         }
+    }
 
+    private List obtainRGB(String rgb) //We transform the strings in usable lists
+    {
+        List new_list = new ArrayList();
+        String[] values =rgb.toString().split("[ ,]+");
+        StringBuilder sb = new StringBuilder(values[0]);
+        sb.deleteCharAt(0);
+        new_list.add(Integer.parseInt(sb.toString()));
+        new_list.add(Integer.parseInt(values[1]));
+        StringBuilder sb2 = new StringBuilder(values[2]);
+        sb2.deleteCharAt(sb2.length()-1);
+        new_list.add(Integer.parseInt(sb2.toString()));
+        return new_list;
     }
 }

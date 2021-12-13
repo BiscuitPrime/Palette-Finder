@@ -50,11 +50,11 @@
             android:layout_height="87dp"
             android:orientation="horizontal">
 
-            <ImageView
+            <View
                 android:id="@+id/colorView1"
                 android:layout_width="113dp"
                 android:layout_height="72dp"
-                app:srcCompat="@android:drawable/screen_background_light" />
+                android:background="@color/white" />
 
             <TextView
                 android:id="@+id/RGBval1"
@@ -73,12 +73,12 @@
             android:layout_height="88dp"
             android:orientation="horizontal">
 
-            <ImageView
+            <View
                 android:id="@+id/colorView2"
                 android:layout_width="21dp"
                 android:layout_height="78dp"
                 android:layout_weight="1"
-                app:srcCompat="@android:drawable/screen_background_light" />
+                android:background="@color/white" />
 
             <TextView
                 android:id="@+id/RGBval2"
@@ -98,12 +98,12 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <ImageView
+            <View
                 android:id="@+id/colorView3"
                 android:layout_width="21dp"
                 android:layout_height="81dp"
                 android:layout_weight="1"
-                app:srcCompat="@android:drawable/screen_background_light" />
+                android:background="@color/white" />
 
             <TextView
                 android:id="@+id/RGBval3"
@@ -123,12 +123,12 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <ImageView
+            <View
                 android:id="@+id/colorView4"
                 android:layout_width="21dp"
                 android:layout_height="81dp"
                 android:layout_weight="1"
-                app:srcCompat="@android:drawable/screen_background_light" />
+                android:background="@color/white" />
 
             <TextView
                 android:id="@+id/RGBval4"
@@ -148,12 +148,12 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <ImageView
+            <View
                 android:id="@+id/colorView5"
                 android:layout_width="21dp"
                 android:layout_height="81dp"
                 android:layout_weight="1"
-                app:srcCompat="@android:drawable/screen_background_light" />
+                android:background="@color/white" />
 
             <TextView
                 android:id="@+id/RGBval5"
