@@ -29,5 +29,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //Generate Button ----------------------------------------------------
+
+        //SavedPalettesButton -----------------------------------------------------
+        Button savedPalettesButton = (Button) findViewById(R.id.savedButton);
+        savedPalettesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent savedIntent = new Intent(MainActivity.this, SavedPalettes.class);
+                MainActivity.this.startActivity(savedIntent);
+            }
+        });
+        //SavedPalettesButton -----------------------------------------------------
     }
 }
