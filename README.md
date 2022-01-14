@@ -1,6 +1,8 @@
 # Palette-Finder
 "Find your palette !"
 
+## Application réalisée dans le cadre de mes études à Télécom Sudparis.
+
 Que ce soit des dessins 2D aux modèles 3D, les palettes de couleurs sont essentielles dans le domaine artistique, et encore plus dans l’univers virtuel. Il est donc toujours utile d’avoir un logiciel capable d’obtenir des palettes harmonisées.
 
 Palette Finder permet d’obtenir rapidement une palette de 5 couleurs harmonisées pour des projets artistiques grâce à l’API ColorMind : http://colormind.io/api-access/
